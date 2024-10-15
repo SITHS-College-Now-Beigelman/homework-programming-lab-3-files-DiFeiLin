@@ -1,0 +1,14 @@
+TYPE......AMOUNT...................BALANCEWithdrawl: 200
+New Account balance: $5200
+Withdrawl: 800
+New Account balance: $6000
+Withdrawl: 40
+New Account balance: $6040
+Deposit: 90
+New Account balance: $5950
+Deposit: 100
+New Account balance: $5850
+Deposit: 1000
+New Account balance: $4850
+Withdrawl: 20
+New Account balance: $4870

@@ -11,47 +11,36 @@ int main(){
     string typeTransaction; // identifies the variables 
     double transactionMoney;
     double moneyTotal;
-    int amountTransaction = 7;
     double credit = 0;//credit amount starts at 0
     double debit = 0;//debit amount startsat 0
-
     ifstream myInput;//identify the input and output file 
     ofstream myOutput;
-    
     string WorD;
-
     myInput.open("transaction.txt");//open the file 
-
+    myOutput.open("bankstatment.txt");
     myInput>>moneyTotal;
-
-    while (amountTransaction>-1){ // it ends when the numbers of transactions hits 0
+    myOutput<<setfill('.');
+    myOutput<<"TYPE"<<setw(12)<<"AMOUNT"<<setw(27)<<"BALANCE";
+    while (!myInput.eof()){ // it ends when the numbers of transactions hits 0
 
     myInput>>WorD>>transactionMoney;
 
     if (WorD == "D"){ // if debit subtraction 
 
-        cout<<fixed<<showpoint;
-        cout<<setprecision(2);
-        cout<<"Deposit: "<<transactionMoney<<endl;
-        cout<<"New Account balance: $" <<moneyTotal-transactionMoney<<endl;
+        myOutput<<"Deposit: "<<transactionMoney<<endl;
+        myOutput<<"New Account balance: $" <<moneyTotal-transactionMoney<<endl;
         moneyTotal = moneyTotal-transactionMoney;
 
-        amountTransaction = amountTransaction - 1;//deducts one from the amount of transactions left 
         debit = debit + transactionMoney;// totals the debit deduction amount 
     }
 
     else {
-
-        cout<<fixed<<showpoint;
-        cout<<setprecision(2);
-        cout<<"Withdrawl: "<<transactionMoney<<endl;
-        cout<<"New Account balance: $" <<moneyTotal+transactionMoney<<endl;// if credit addition 
+        myOutput<<"Withdrawl: "<<transactionMoney<<endl;
+        myOutput<<"New Account balance: $" <<moneyTotal+transactionMoney<<endl;// if credit addition 
         moneyTotal = moneyTotal+transactionMoney;//adds to the amount money left 
 
-        amountTransaction = amountTransaction - 1;//deducts one from te amount fo transactions left 
         credit = credit+transactionMoney;//totals the debit deduction amount 
     }
-
     }
 
     cout<<"Total credit addition: $"<<credit<<endl;//prints total credit amount 
